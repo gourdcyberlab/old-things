@@ -1,0 +1,31 @@
+WARNING: No route found for IPv6 destination :: (no default route?)
+WARNING: Mac address to reach destination not found. Using broadcast.
+ERROR: --- Error in child 1200
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/scapy/sendrecv.py", line 89, in sndrcv
+    pks.send(p)
+  File "/usr/lib/python2.7/dist-packages/scapy/arch/linux.py", line 387, in send
+    sx = str(ll(x))
+  File "/usr/lib/python2.7/dist-packages/scapy/packet.py", line 261, in __str__
+    return self.build()
+  File "/usr/lib/python2.7/dist-packages/scapy/packet.py", line 319, in build
+    p = self.do_build()
+  File "/usr/lib/python2.7/dist-packages/scapy/packet.py", line 311, in do_build
+    pay = self.do_build_payload()
+  File "/usr/lib/python2.7/dist-packages/scapy/packet.py", line 303, in do_build_payload
+    return self.payload.do_build()
+  File "/usr/lib/python2.7/dist-packages/scapy/packet.py", line 308, in do_build
+    pkt = self.self_build()
+  File "/usr/lib/python2.7/dist-packages/scapy/packet.py", line 299, in self_build
+    p = f.addfield(self, p, val)
+  File "/usr/lib/python2.7/dist-packages/scapy/fields.py", line 70, in addfield
+    return s+struct.pack(self.fmt, self.i2m(pkt,val))
+  File "/usr/lib/python2.7/dist-packages/scapy/layers/l2.py", line 94, in i2m
+    return MACField.i2m(self, pkt, self.i2h(pkt, x))
+  File "/usr/lib/python2.7/dist-packages/scapy/fields.py", line 183, in i2m
+    return mac2str(x)
+  File "/usr/lib/python2.7/dist-packages/scapy/utils.py", line 244, in mac2str
+    return "".join(map(lambda x: chr(int(x,16)), mac.split(":")))
+  File "/usr/lib/python2.7/dist-packages/scapy/utils.py", line 244, in <lambda>
+    return "".join(map(lambda x: chr(int(x,16)), mac.split(":")))
+ValueError: invalid literal for int() with base 16: '10.0.0.200'
